@@ -46,13 +46,14 @@
               </ul>
               </div>
               <br>
-              <button type="submit" name="button">Share</button>
-              <button type="submit" name="button">Cancel</button>
+                    <button type="submit" class="btn btn-primary btn-block">Share</button>
+                    <button type="submit" class="btn btn-primary btn-block">Cancel
+                    </button>
                   </div>
                   <!-- Modal footer -->
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                  </div>
+%{--                  <div class="modal-footer">--}%
+%{--                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>--}%
+%{--                  </div>--}%
                 </div>
               </div>
               </div>
@@ -82,13 +83,14 @@
                 </ul>
                 </div>
                 <br>
-                <button type="submit" name="button">Share</button>
-                <button type="submit" name="button">Cancel</button>
+                    <button type="submit" class="btn btn-primary btn-block">Share</button>
+                    <button type="submit" class="btn btn-primary btn-block">Cancel
+                    </button>
                   </div>
                   <!-- Modal footer -->
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                  </div>
+%{--                  <div class="modal-footer">--}%
+%{--                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>--}%
+%{--                  </div>--}%
                 </div>
               </div>
               </div>

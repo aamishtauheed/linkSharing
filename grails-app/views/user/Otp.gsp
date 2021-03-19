@@ -13,6 +13,7 @@
 
 <body>
 <g:form controller="user" action="compare">
+    <div class="message" style="color: #a60000">${flash.otp}</div>
 <label>Enter Otp:</label>
 <input type="text" placeholder="enter otp" name="otp">
 <button controller="user" action="compare">Done</button>

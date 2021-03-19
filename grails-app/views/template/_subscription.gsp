@@ -23,17 +23,20 @@
             </tr>
             <tr>
                 <td>  <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Serious
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">${si.seriousness}
                         <span class="caret"></span></button>
                     <ul class="dropdown-menu">
                         <li><a href="#">Serious</a></li>
+                        <li><a href="#">Casual</a> </li>
+                        <li><a href="#"></a>Very Serious</li>
                     </ul>
                 </div>
                 <td>  <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Private
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">${si.topic.visibility}
                         <span class="caret"></span></button>
                     <ul class="dropdown-menu">
                         <li><a href="#">Private</a></li>
+                        <li><a href="#">Public</a></li>
                     </ul>
                 </div></td>
                 <td><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></td>

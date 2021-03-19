@@ -31,8 +31,9 @@
         </form>
     </div>
 </nav>
-<div class="message" > ${flash.login}</div>
+<div class="message" style="color: #a60000"> ${flash.login}</div>
 <div class="message">${flash.message}</div>
+<div class="message" style="color: #a60000">${flash.notRegistered}</div>
 <div class="container">
     <div class="row">
         <div class="col-sm-7 mt-2 mr-3">

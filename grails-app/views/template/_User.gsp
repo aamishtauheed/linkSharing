@@ -4,7 +4,7 @@
 
         <h6>Users : "Grails"</h6>
     </div>
-
+<div style="overflow-x: scroll; height: 400px;">
 <g:each in="${users}" var="us">
 
 
@@ -28,4 +28,5 @@
 
 
 </g:each>
+</div>
 </div>

@@ -27,7 +27,7 @@ class UserController {
 
                 redirect(controller: 'user', action: 'index')
             } else {
-//                flash.message = "User is not registered"
+               flash.notRegistered = "User is not registered"
                 redirect(controller: 'user', action: 'index')
             }
         }
@@ -129,6 +129,8 @@ class UserController {
         render view: 'topicshow', model: [tcount: countTopic,Scount: count,users: users]
     }
     def send() {
+        def user=User.findById()
+        if()
         sendMail {
             println(params.email)
             to params.email
@@ -154,6 +156,10 @@ class UserController {
         if(params.otp==otp){
             println("true")
             redirect(controller:'user' , action: 'reset')
+        }
+        else{
+            flash.otp="Otp doesnot Match"
+            redirect(controller: 'user', action: 'enterOtp')
         }
 
     }
