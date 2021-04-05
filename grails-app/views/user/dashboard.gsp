@@ -293,6 +293,9 @@
 %{--          </table>--}%
 %{--    </div>--}%
           <g:render template="/template/Posts"></g:render>
+        <span id="display">
+
+        </span>
     </div>
 
 
@@ -300,27 +303,28 @@
 
       </div>
 
+
+
   </div>
 
-</div>
-  <span id="display">
 
-  </span>
+</div>
   <script>
     $(document).ready(function (){
       $("#search").on('input',function (){
-        searchfunction();
+        abc=($("#search").val());
+        searchfunction(abc);
       });
     });
-    function searchfunction(){
+    function searchfunction(value){
       $.ajax({
         method:"POST",
         url:"http://localhost:8030/user/search",
-        data:{"search":$("#search").val()},
+        data:{"search":value},
         datatype:JSON,
         success:function (result){
           $("#inbox").hide()
-          $("#display").text(result[0].tName+result[0].createdBy.userName+result[0].description)
+          $("#display").html("Topic Name:" +result.topic+" "+"Created By:"+result.created+" "+"Description:"+result.description)
         }
       });
     };

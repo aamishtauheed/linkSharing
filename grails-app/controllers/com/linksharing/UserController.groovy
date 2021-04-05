@@ -124,7 +124,10 @@ class UserController {
             def user = session.user
             def countTopic = topicService.countIt(user)
             def count = topicService.countSub(user)
-            render view: 'editprofile', model: [tcount: countTopic, Scount: count]
+            def subs = topicService.subsCrip(user)
+            List<Topic> ts = Topic.findAllByCreatedBy(user)
+            def subTopic = subscriptionService.isSubscribed(user)
+            render view: 'editprofile', model: [tcount: countTopic, Scount: count,subs: subs,subTopic: subTopic,topics:ts]
         }
         else{
             redirect(controller: 'user',action: 'index')
@@ -173,12 +176,10 @@ class UserController {
         redirect(controller: 'user', action: 'editProfile')
     }
     def search() {
-        def result = Topic.createCriteria().list {
-            ilike('tName', params.search)
-        }
+        def result = Topic.findAllByTNameLike("${params.search}%")
         if (result) {
             println(result)
-            render (  result as JSON)
+            render (  [topic: result.tName ,created:result.createdBy.userName,description:result.resources.description] as JSON)
         } else {
             render(status: 500)
         }
@@ -188,6 +189,7 @@ class UserController {
     }
     def topicShow(){
         if(session.user){
+            if(params.id){
         def user=session.user
             Topic topic=Topic.findById(params.id)
             List<Subscription> sub=Subscription.findAllByTopic(topic)
@@ -201,6 +203,9 @@ class UserController {
         def dis=resourceService.disp()
         render view: 'topicshow', model: [tcount: countTopic,Scount: count,subs: sub,dis:dis,topic:topic]
     }else{
+                redirect(action: "dashboard")
+            }
+        }else{
             redirect(controller: 'user',action: 'index')
         }
     }
@@ -338,7 +343,8 @@ class UserController {
             render(view: 'Otp', model: [user:user])
         }
         else{
-            flash.messageUserNotFound = "${params.email} not found"
+            flash.messageUserNotFound = "${params.email}   is not a Registered User."
+            redirect action: "index"
         }
     }
     def otpVerify(){

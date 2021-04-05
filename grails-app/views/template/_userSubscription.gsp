@@ -7,7 +7,7 @@
     <div class="card-body" data-spy="scroll" data-target="#topic" style="border:1px solid black">
         <table cellpadding="10px">
             <tr>
-                <td><a href="#grails">${sub.tName}</a> <br>
+                <td><a href="#">${sub.tName}</a> <br>
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Search
                             <span class="caret"></span></button>

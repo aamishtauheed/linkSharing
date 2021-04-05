@@ -10,6 +10,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <link rel="stylesheet" href="homepage.css">
+    <script src="https://kit.fontawesome.com/91f5a52a7a.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -32,30 +33,31 @@
   </nav>
   <div class="container">
     <div class="row">
-      <div class="col-sm-5">
+      <div class="col-sm-6 mt-2 md-2">
         <g:render template="/template/userInfo"></g:render>
-        <div class="card">
+        <g:render template="/template/subscription"></g:render>
+%{--        <div class="card">--}%
 
-          <div class="card-header"style="border:1px solid black" >
-            <p>
-              &nbsp Topic &nbsp
-            <input style="float:right" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          </p>
-          </div>
-          <div class="card-body" style="border:1px solid black">
-            <img src="https://www.pngkit.com/png/full/281-2812821_user-account-management-logo-user-icon-png.png"  style="float:left;border:2px solid black;" alt="user" width="150" height="150" />
-            <div class="recent">
-              <h4>&nbsp Tauheed</h4>
-                <div>
+%{--          <div class="card-header"style="border:1px solid black" >--}%
+%{--            <p>--}%
+%{--              &nbsp Topic &nbsp--}%
+%{--            <input style="float:right" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">--}%
+%{--          </p>--}%
+%{--          </div>--}%
+%{--          <div class="card-body" style="border:1px solid black">--}%
+%{--            <img src="https://www.pngkit.com/png/full/281-2812821_user-account-management-logo-user-icon-png.png"  style="float:left;border:2px solid black;" alt="user" width="150" height="150" />--}%
+%{--            <div class="recent">--}%
+%{--              <h4>&nbsp Tauheed</h4>--}%
+%{--                <div>--}%
 
-                </div>
-                <br />
+%{--                </div>--}%
+%{--                <br />--}%
 
-            </div>
-          </div>
-        </div>
+%{--            </div>--}%
+%{--          </div>--}%
+%{--        </div>--}%
       </div>
-      <div class="col-sm-7">
+      <div class="col-sm-6 mt-2">
         <div class="card">
           <div class="card-header"style="border:1px solid black" >Update Profile</div>
           <div class="card-body" style="border:1px solid black">
@@ -85,7 +87,7 @@
 
        </div>
        </div>
-       <div class="card">
+       <div class="card mt-2">
 
          <div class="card-header"style="border:1px solid black">Change Password</div>
          <div class="card-body" style="border:1px solid black">

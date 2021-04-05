@@ -46,6 +46,8 @@ class TopicController {
             println("in delete")
             def tp = Topic.findById(params.topicId)
             tp.delete(flush: true)
+            Map m=[status: true]
+            render m as JSON
         }
         def topics = Topic.list()
         render(model: [topicname: topics.tName, topicid: topics.id] as JSON)
@@ -78,6 +80,8 @@ class TopicController {
             println(s)
             u.addToSubscriptions(s).save(flush: true)
             t.addToSubscriptions(s).save(flush: true)
+            Map m=[status:true]
+            render m as JSON
 
         }
 
@@ -102,6 +106,8 @@ class TopicController {
             Topic t = Topic.get(params.topicId)
             def s=Subscription.findByTopicAndUser(t,u)
             s.delete(flush: true)
+            Map m=[status: true]
+            render m as JSON
 
         }
         def a=Topic.list()

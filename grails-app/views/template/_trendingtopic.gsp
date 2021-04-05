@@ -14,7 +14,7 @@
                 <td><g:img dir="/home/aamish/Project/grails-app/assets/images/profilePic/" class="photo" file="${topic.createdBy.image}" height="100px" width="100px" alt=""/></td>
                 <td>  <g:link controller="user" action="topicShow" id="${topic.id}">${topic.tName}</g:link> <br>@${topic.createdBy.userName} <br>
                    <g:if test="${((subTopic.user.id).contains(session.user.id))&&((subTopic.topic.id).contains(topic.id))}">
-                       <a href="#" onclick="unsubscribe(${topic.id})" id="unsubscribe">Unsubscribe</a>
+                       <a href="#" onclick="unsubscribe(${topic.id})" id="unsub">Unsubscribe</a>
 %{--                        </td>   --}%
                    </g:if>
                   <g:else>
@@ -59,9 +59,10 @@
                 </div></td>
                 <td style="padding: 10px"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></td>
                 <td><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></td>
-                <td style="padding: 10px">
+                    <td style="padding: 10px">
 
          <i class="fa fa-trash-o fa-2x" id="del" onclick="myfunction99(${topic.id})" aria-hidden="true" ></i>
+                    </td>
 
      </g:if>
 
@@ -112,8 +113,10 @@
                 data:{"topicId": id},
                 dataType: "JSON",
                 success: function (result){
-                    alert("working")
-                    $(".card" + id).hide()
+                    if(resul.status==true) {
+                        alert("working")
+                        $(".card" + id).hide();
+                    }
                 }
             });
         };
@@ -124,9 +127,13 @@
                 url:"http://localhost:8030/topic/subscriber",
                 data:{"topicId":id},
                 dataType:"JSON",
-                success: function(){
-                    $("#subscribe").hide()
-                    $("#unsubscribe").show()
+                success: function(result){
+                    if(result.status==true) {
+                        $("#subscribe").hide()
+                        // alert("done")
+                        $("#unsub").show();
+                        // alert("done again")
+                    }
                 }
             })
         }
@@ -136,9 +143,12 @@
                   url:"http://localhost:8030/topic/unsubscribe",
                   data:{"topicId":id},
                   dataType:"JSON",
-                  success: function (){
-                      $("#unsubscribe").hide()
-                      $("#subscribe").show()
+                  success: function (result){
+                      if(result.status==true) {
+                          $("#unsub").hide()
+                          $("#subscribe").show();
+
+                      }
 
                   }
               })

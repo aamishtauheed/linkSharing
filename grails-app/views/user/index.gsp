@@ -69,6 +69,7 @@
 
                     <label id="newuser">New User?</label>
                     <button type="submit" class="btn btn-primary" style="align:right" data-toggle="modal" data-target=#register>Register</button><br>
+                   <br> <div class="message" style="color: #a60000">${flash.messageUserNotFound}</div>
                     <p class="mb-0 mt-4 text-center"><a href="#0" class="link" data-toggle="collapse" data-target="#demo">Forgot your password?</a></p>
                     <br>
                     <g:form  controller="user" action="forgotPassword"><div id="demo" class="collapse">
@@ -88,12 +89,12 @@
 
                                 <!-- Modal Header -->
                                 <div class="modal-header" style="border:1px solid black;background-color: #80bdff">
-                                    <h4 class="modal-title" >Register User</h4>
+                                <h4 class="modal-title" ><i><b>Register User:</b></i></h4>
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 </div>
 
                                 <!-- Modal body -->
-                                <div class="modal-body">
+                                <div class="modal-body" style="border:1px solid black">
                                     <g:form  controller="user" action="registerUser" method="POST" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label for="firstName">First Name:</label>
