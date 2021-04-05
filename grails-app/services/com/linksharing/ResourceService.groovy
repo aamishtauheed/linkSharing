@@ -19,7 +19,11 @@ class ResourceService {
         topic.save(flush:true,failOnError:true)
     }
     def recent(){
-        List<Resource> res=Resource.list(sort: 'lastUpdated',offset:0,max:5)
+        List<Resource> res=Resource.list(sort: 'lastUpdated',order:'desc',offset:0,max:5)
+        return res
+    }
+    def disp(){
+        List<Resource> res=Resource.list()
         return res
     }
 

@@ -14,11 +14,11 @@
 <body>
 <div class="card" >
 
-    <div class="card-header"id="scr" style="border:1px solid black" >Recent Shares</div>
+    <div class="card-header"id="scr" style="border:1px solid black;background-color: #80bdff" ><b><i>Recent Shares</i></b></div>
     <div style="overflow-x: scroll; height: 400px;">
     <g:each in="${recents}" var="rec">
     <div class="card-body" style="border:1px solid black">
-        <img src="https://www.pngkit.com/png/full/281-2812821_user-account-management-logo-user-icon-png.png"  style="float:left;border:2px solid black;" alt="user" width="150" height="150" />
+        <g:img dir="/home/aamish/Project/grails-app/assets/images/profilePic/" class="photo" file="${rec.createdBy.image}"  style="float:left;border:2px solid black;" alt="user" width="150" height="150" />
         <div class="recent">
             <p>
                 &nbsp ${rec.createdBy.userName}

@@ -8,7 +8,7 @@ class UserCO implements Validateable{
     String email;
     String userName;
     String password;
-    Byte[] photo;
+    String image;
     String confirmPassword;
     static constraints = {
         email(nullable: false,email: true,unique: true,blank: false);
@@ -16,11 +16,12 @@ class UserCO implements Validateable{
         userName(nullable: false, unique: true);
         password(nullable: false);
         firstName(nullable: false);
+        image(nullable: true);
         confirmPassword blank: false, size: 5..15, validator: { val, obj ->
             if (obj.password != obj.confirmPassword)
                 return "----passwords don't match----"
         }
-        photo(nullable: true);
+
 
     }
 

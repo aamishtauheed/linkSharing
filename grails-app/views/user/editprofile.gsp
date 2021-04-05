@@ -59,7 +59,7 @@
         <div class="card">
           <div class="card-header"style="border:1px solid black" >Update Profile</div>
           <div class="card-body" style="border:1px solid black">
-           <g:form controller="user" action="updateProfile" method="POST">
+           <g:form controller="user" action="updateProfile" method="POST" enctype="multipart/form-data">
            <div class="form-group">
              <label for="Firstname">First Name:</label>
              <input type="text" name="firstName" class="form-control" placeholder="first name" id="Firstname">
@@ -72,7 +72,13 @@
              <label for="Username">User Name:</label>
              <input type="text" name="userName" class="form-control" placeholder="user name" id="Username">
            </div>
-%{--         <div><label for="photo">Photo:</label></div>--}%
+%{--               <div class="form-group ">--}%
+%{--                   <label for="selectimage">Select Image</label>--}%
+%{--                   <input type="file" name="photo" class="form-control" id="selectimage">--}%
+%{--               </div>--}%
+         <div class="form-group"><label>Photo:</label>
+             <input type="file" name="image">
+         </div>
            <g:actionSubmit value="Update" action="updateProfile" type="submit" class="btn btn-primary">Update</g:actionSubmit>
            </g:form>
 

@@ -15,7 +15,7 @@
 <div class="message">${flash.result}</div>
 <div>
 <g:form controller="user" action="resetPassword">
-    <h1>Hi "${mail}"</h1>
+    <h1>Hi </h1>
 %{--<label>Email:</label>--}%
 %{--<input type="email" placeholder="enter email" name="email">--}%
 <label>Password:</label>

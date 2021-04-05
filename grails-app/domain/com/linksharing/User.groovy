@@ -9,7 +9,8 @@ class User {
     String password
     boolean active
     boolean admin
-    Byte[] image
+    String image
+    String otp
     Date dateCreated
     Date lastUpdated
 
@@ -32,6 +33,8 @@ class User {
 
         readingItems nullable: true
         topics nullable: true
+        email unique: true
+        otp nullable: true
     }
     static mapping={
         table"USER_INFO"

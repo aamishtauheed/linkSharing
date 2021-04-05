@@ -13,9 +13,9 @@
     <script src="https://kit.fontawesome.com/91f5a52a7a.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <nav class="navbar navbar navbar-dark bg-light">
+    <nav class="navbar navbar navbar-dark bg-info">
       <div class="container-fluid">
-        <a class="navbar-brand" style="color:black" >Link Sharing</a>
+        <g:link controller="user" action="dashboard" class="navbar-brand" style="color:black" >Link Sharing</g:link>
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <table cellpadding="5px">
@@ -99,7 +99,7 @@
 
 
           <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Hi ${session.user.userName}
+    <button class="btn btn-primary dropdown-toggle" style="background-color: brown" type="button" data-toggle="dropdown">Hi ${session.user.userName}
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
       <li><g:link controller="user" action="profile">Profile</g:link></li>
@@ -113,7 +113,7 @@
 
       <div class="row">
 
-          <div class="col-sm-6">
+          <div class="col-sm-5 mt-2 ">
 
 <g:render template="/template/topic"></g:render>
 <g:render template="/template/User"></g:render>
@@ -122,85 +122,50 @@
 
 
 
-<div class="col-sm-6">
-  <div class="card">
+<div class="col-sm-6 mt-2 ">
+    <div class="card mt-1">
 
-    <div class="card-header"style="border:1px solid black" >
+        <div class="card-header" style="border:1px solid black;background-color: #80bdff">
 
-<h6>Posts: "Grails"</h6>
+            <h6>Posts:</h6>
 
+        </div>
+  <g:render template="/template/Posts"></g:render>
 
-    </div>
-
-
-    <div class="card-body" style="border:1px solid black">
-
-
-    <table cellpadding="5px">
-      <tr>
-        <td>  <img src="https://www.pngkit.com/png/full/281-2812821_user-account-management-logo-user-icon-png.png" height="100px" width="100px" alt=""></td>
-        <td><p>Lorem ipsum dolor sir amet, consectetur adipiscing elit . Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus.</p></td>
-      </tr>
-    </table>
+%{--    <div class="card-body" style="border:1px solid black">--}%
 
 
-    <table cellpadding="10px">
-      <tr>
-        <td>  <i class="fab fa-facebook fa-2x"></i>
-          <i class="fab fa-twitter-square fa-2x"></i>
-          <i class="fab fa-google-plus-g fa-2x"></i></td>
-        <td>
-          <a href="#download">Download</a>
-  </td>
-    <td>
-      <a href="#viewfullsite">View full Site</a>
-    </td>
-    <td>
-  <a href="#markasread">Mark As Read</a>
-    </td>
-    <td>
-      <a href="#download">View Post</a>
-    </td>
-      </tr>
-    </table>
+%{--    <table cellpadding="5px">--}%
+%{--      <tr>--}%
+%{--        <td>  <img src="https://www.pngkit.com/png/full/281-2812821_user-account-management-logo-user-icon-png.png" height="100px" width="100px" alt=""></td>--}%
+%{--        <td>  <p>Lorem ipsum dolor sir amet, consectetur adipiscing elit . Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus.</p></td>--}%
+
+%{--      </tr>--}%
+%{--    </table>--}%
 
 
-    </div>
-
-    <div class="card-body" style="border:1px solid black">
-
-
-    <table cellpadding="5px">
-      <tr>
-        <td>  <img src="https://www.pngkit.com/png/full/281-2812821_user-account-management-logo-user-icon-png.png" height="100px" width="100px" alt=""></td>
-        <td>  <p>Lorem ipsum dolor sir amet, consectetur adipiscing elit . Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus.</p></td>
-
-      </tr>
-    </table>
-
-
-    <table cellpadding="10px">
-      <tr>
-        <td>  <i class="fab fa-facebook fa-2x"></i>
-          <i class="fab fa-twitter-square fa-2x"></i>
-          <i class="fab fa-google-plus-g fa-2x"></i></td>
-        <td>
-          <a href="#download">Download</a>
-  </td>
-    <td>
-      <a href="#viewfullsite">View full Site</a>
-    </td>
-    <td>
-  <a href="#markasread">Mark As Read</a>
-    </td>
-    <td>
-      <a href="#download">View Post</a>
-    </td>
-      </tr>
-    </table>
+%{--    <table cellpadding="10px">--}%
+%{--      <tr>--}%
+%{--        <td>  <i class="fab fa-facebook fa-2x"></i>--}%
+%{--          <i class="fab fa-twitter-square fa-2x"></i>--}%
+%{--          <i class="fab fa-google-plus-g fa-2x"></i></td>--}%
+%{--        <td>--}%
+%{--          <a href="#download">Download</a>--}%
+%{--  </td>--}%
+%{--    <td>--}%
+%{--      <a href="#viewfullsite">View full Site</a>--}%
+%{--    </td>--}%
+%{--    <td>--}%
+%{--  <a href="#markasread">Mark As Read</a>--}%
+%{--    </td>--}%
+%{--    <td>--}%
+%{--      <a href="#download">View Post</a>--}%
+%{--    </td>--}%
+%{--      </tr>--}%
+%{--    </table>--}%
 
 
-    </div>
+%{--    </div>--}%
 </div>
 
 

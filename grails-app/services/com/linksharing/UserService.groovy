@@ -3,6 +3,11 @@ import grails.validation.Validateable
 import com.linksharing.commandObject.UserCO
 import grails.gorm.transactions.Transactional
 import grails.web.servlet.mvc.GrailsParameterMap
+import java.io.FileNotFoundException
+import java.lang.IllegalArgumentException
+
+import javax.imageio.ImageIO
+import java.awt.image.BufferedImage
 
 @Transactional
 class UserService {
@@ -10,18 +15,36 @@ class UserService {
     def serviceMethod() {
 
     }
-    def save(UserCO userCo) {
-        User user = new User(firstName: userCo.firstName, lastName: userCo.lastName,
-                email: userCo.email, userName: userCo.userName, password: userCo.password)
-        if (user.validate()) {
-            user.active=true
-            user.save(flush: true)
-            return user
+    def save(def params) {
+        //////////////////EXPERIMENT////////////////////////
 
-        } else {
-          return null
+        println("-------------------------------------")
+//        println(userCo.image)
+        User user = new User(firstName: params.firstName, lastName: params.lastName,
+                email: params.email, userName: params.userName, password:params.password)
+        user.active=true
+//        user.save(flush:true,failOnError:true)
+        String a = "profilePic/${user.userName}.jpeg"
+        user.image = a
+        println(user.properties)
 
+        if (user.image) {
+            ByteArrayInputStream bis = new ByteArrayInputStream(params.image.getBytes());
+            BufferedImage bImage2 = ImageIO.read(bis);
+            ImageIO.write(bImage2, "jpeg", new File("/home/aamish/Project/grails-app/assets/images/profilePic/${user.userName}.jpeg"));
         }
+        user.save(flush:true,failOnError:true)
+        return user
+
+//        if (user.validate()) {
+//            user.active=true
+//            user.save(flush: true)
+//            return user
+//
+//        } else {
+//          return null
+//
+//        }
 
     }
     def loginUser(String email,String password){
@@ -38,6 +61,13 @@ class UserService {
         user.firstName=params.firstName;
         user.lastName=params.lastName;
         user.userName=params.userName;
+        String a = "profilePic/${user.userName}.jpeg"
+        user.image = a
+        if (user.image) {
+            ByteArrayInputStream bis = new ByteArrayInputStream(params.image.getBytes());
+            BufferedImage bImage2 = ImageIO.read(bis);
+            ImageIO.write(bImage2, "jpeg", new File("/home/aamish/Project/grails-app/assets/images/profilePic/${user.userName}.jpeg"));
+        }
         user.save(flush:true)
         return user
     }

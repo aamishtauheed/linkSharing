@@ -1,8 +1,8 @@
-<div class="card">
+<div class="card ml-2">
 
-    <div class="card-header"style="border:1px solid black" >
+    <div class="card-header"style="border:1px solid black;background-color: #80bdff" >
 
-        <h6>Topic: "Grails"</h6>
+        <h6><b><i>Topic: "${topic.tName}"</i></b></h6>
     </div>
 
 
@@ -10,15 +10,15 @@
 
         <table cellpadding="5px">
             <tr>
-                <td><img src="https://www.pngkit.com/png/full/281-2812821_user-account-management-logo-user-icon-png.png" height="100px" width="100px" alt=""></td>
-                <td>  <a href="#">Grails</a><p>Private</p> <br>@ <br>
+                <td><g:img dir="/home/aamish/Project/grails-app/assets/images/profilePic/" class="photo" file="${topic.createdBy.image}" height="100px" width="100px" alt=""/></td>
+                <td>  <a href="#">${topic.tName}</a><p>${topic.visibility}</p> <br>@ <br>
                     <a href="#subscribe">Subscribe</a> </td>
 
                 <td>
-                    <h6> Subscription <br> <a href="#">50</a> </h6>
+                    <h6>&nbsp Subscription <br> <a href="#">&nbsp ${topic.subscriptions.size()}</a> </h6>
                 </td>
                 <td>
-                    <h6>Post <br><a href="#">30</a></h6>
+                    <h6>&nbsp Post <br><a href="#">&nbsp ${topic.resources.size()}</a></h6>
                 </td>
             </tr>
             <tr>

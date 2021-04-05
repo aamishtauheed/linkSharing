@@ -1,9 +1,10 @@
 <nav class="navbar navbar navbar-dark bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" style="color:black" href="#linksharing" >Link Sharing</a>
-        <input type="text" class="form-control me-2" type="search" id="search"  placeholder="Search" aria-label="Search">
         <table cellpadding="5px">
             <tr>
+       <td> <input type="text" class="form-control me-2" type="search" id="search"  placeholder="Search" aria-label="Search"></td>
+
                 <td><i class="fa fa-link height-5 width-5 color-light fa-2x" aria-hidden="true" data-toggle="modal" data-target="#myModal1"></i></td>
 
                 <!-- The Modal -->
@@ -28,7 +29,7 @@
                                 <label>Topic* :</label>
                                 <div class="dropdown">
                                     %{--        <g:if test="${com.linksharing.Topic.list().visibility=='Public'}">--}%
-                                    <g:select name="tName" from="${com.linksharing.Topic.list().tName}" class="dropdown-toggle btn btn-default col-sm-8" value="${resource?.tName}"/>
+                                    <g:select name="tName" from="${subTopic.topic.tName}" class="dropdown-toggle btn btn-default col-sm-8" value="${resource?.tName}"/>
                                     %{--        </g:if>--}%
                                     %{--<ul class="dropdown-menu">--}%
                                     %{--      <li><a href="#">Topic</a></li>--}%
@@ -66,25 +67,28 @@
 
                             <!-- Modal body -->
                             <div class="modal-body">
+                            <g:form method="post" enctype="multipart/form-data" controller="resource" action="saveDoc">
                                 <label>Document* :</label>
-                                <input type="textarea" name="" value="">
-                                <button type="button" name="button">Browse</button>
+                                <input type="file" name="filePath">
+%{--                                <button type="button" name="button">Browse</button>--}%
                                 <br>
                                 <label>Description :</label>
-                                <input type="textarea"> <br>
+                                <input type="textarea" name="description"> <br>
 
                                 <label>Topic* :</label>
                                 <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Topic
-                                        <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Topic</a></li>
-                                    </ul>
+                                    <g:select name="tName" from="${subTopic.topic.tName}" class="dropdown-toggle btn btn-default col-sm-8" value="${resource?.tName}"/>
+%{--                                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Topic--}%
+%{--                                        <span class="caret"></span></button>--}%
+%{--                                    <ul class="dropdown-menu">--}%
+%{--                                        <li><a href="#">Topic</a></li>--}%
+%{--                                    </ul>--}%
                                 </div>
                                 <br>
                                 <button type="submit" class="btn btn-primary btn-block">Share</button>
                                 <button type="submit" class="btn btn-primary btn-block">Cancel
                                 </button>
+                            </g:form>
                             </div>
 
                             <!-- Modal footer -->
@@ -211,7 +215,7 @@
                 <g:if test="${session.user.admin==true}">
                     <li><g:link controller="admin" action="details">Users</g:link> </li>
                 </g:if>
-                <li><a href="#">Topics</a></li>
+                <li><g:link controller="user" action="topicShow">Topics</g:link></li>
                 <li><g:link controller="user" action="post" >Posts</g:link></li>
                 <li><g:link controller="user" action="logout" >Logout</g:link>
             </ul>
@@ -219,3 +223,23 @@
     </div>
 </nav>
 </nav>
+<script>
+    $(document).ready(function (){
+        $("#search").oninput(function (){
+            searchfunction();
+        });
+    });
+    function searchfunction(){
+        $.ajax({
+            method:"POST",
+            url:"http://localhost:8050/user/search",
+            data:{"search":$("#search").val()},
+            datatype:JSON,
+            success:function (result){
+                $("#inbox").hide()
+                $("#display").text(result.topic + " CreatedBy: "+result.userName +" Description: "+ result.description)
+            }
+        });
+    };
+
+</script>

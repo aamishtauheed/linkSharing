@@ -2,7 +2,7 @@
 
 
     <div class="card-body" style="border:1px solid black ">
-        <img src="https://www.pngkit.com/png/full/281-2812821_user-account-management-logo-user-icon-png.png"  style="float:left;border:2px solid black;" alt="user" width="150" height="150" />
+        <g:img dir="/home/aamish/Project/grails-app/assets/images/profilePic/" class="photo" file="${session.user.image}"  style="float:left;border:2px solid black;" alt="user" width="150" height="150" />
 
 
         <table cellpadding="10px">

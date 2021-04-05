@@ -78,29 +78,30 @@
   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 </form>
     </div>
-    <div class="card-body" style="border:1px solid black">
-    <a href="#">Grails</a>
-    <p>Lorem ipsum dolor sir amet, consectetur adipiscing elit . Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus.</p>
-    <i class="fab fa-facebook fa-2x"></i>
-    <i class="fab fa-twitter-square fa-2x"></i>
-    <i class="fab fa-google-plus-g fa-2x"></i>
-    <table cellpadding="10px">
-      <tr>
-        <td>
-          <a href="#download">Download</a>
-        </td>
-    <td>
-      <a href="#viewfullsite">View full Site</a>
-    </td>
-    <td>
-  <a href="#markasread">Mark As Read</a>
-    </td>
-    <td>
-      <a href="#download">View Post</a>
-    </td>
-      </tr>
-    </table>
-    </div>
+    <g:render template="/template/Posts"></g:render>
+%{--    <div class="card-body" style="border:1px solid black">--}%
+%{--    <a href="#">Grails</a>--}%
+%{--    <p>Lorem ipsum dolor sir amet, consectetur adipiscing elit . Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus.</p>--}%
+%{--    <i class="fab fa-facebook fa-2x"></i>--}%
+%{--    <i class="fab fa-twitter-square fa-2x"></i>--}%
+%{--    <i class="fab fa-google-plus-g fa-2x"></i>--}%
+%{--    <table cellpadding="10px">--}%
+%{--      <tr>--}%
+%{--        <td>--}%
+%{--          <a href="#download">Download</a>--}%
+%{--        </td>--}%
+%{--    <td>--}%
+%{--      <a href="#viewfullsite">View full Site</a>--}%
+%{--    </td>--}%
+%{--    <td>--}%
+%{--  <a href="#markasread">Mark As Read</a>--}%
+%{--    </td>--}%
+%{--    <td>--}%
+%{--      <a href="#download">View Post</a>--}%
+%{--    </td>--}%
+%{--      </tr>--}%
+%{--    </table>--}%
+%{--    </div>--}%
 
 </div>
 </div>

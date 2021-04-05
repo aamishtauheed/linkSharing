@@ -7,7 +7,7 @@ class Resource {
     Date dateCreated
     Date lastUpdated
     static belongsTo=[createdBy:User, topic:Topic]
-    static hasMany=[readingItems: ReadingItem, resourceRatings:ResourceRating,linkResources:LinkResource]
+    static hasMany=[readingItems: ReadingItem, resourceRatings:ResourceRating,linkResources:LinkResource,documentResources:DocumentResources]
 
     static constraints= {
         createdBy nullable: false

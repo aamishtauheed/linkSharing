@@ -42,6 +42,7 @@
                     <th>🔽Manage</th>
               </tr>
                 <g:each in="${info}" var="it">
+                    <g:if test="${it.admin!=true}">
                 <td>${it.id}</td>
                 <td>${it.userName}</td>
                  <td>${it.email}</td>
@@ -57,6 +58,7 @@
                         <td><g:link controller="user" action="activate" id="${it.id}" style="color: #1e7e34">Activate</g:link> </td>
                     </g:else>
               </tr>
+                </g:if>
                 </g:each>
 
             </table>

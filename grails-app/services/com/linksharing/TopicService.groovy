@@ -27,14 +27,27 @@ class TopicService {
 
     }
 
-    def trending() {
-        List<Topic> topic = Topic.list(sort: 'dateCreated',order:'desc',offset: '0',max:'5')
-        return topic
-    }
+    def trendingTopics(User user) {
+
+            def criteria = Topic.createCriteria()
+            List<Topic> topicList = criteria.listDistinct {
+                or{
+                    'subscriptions'{
+                        eq('user',user)
+                    }
+                    eq('visibility',Topic.Visibility.Public)
+                }
+            }
+            topicList.sort {
+                Topic topic -> -topic.resources.size()
+            }
+            topicList
+        }
+
 
     def subscribed() {
         // User user= session.user
-        List<Topic> topic = Topic.list(sort: 'id', offset: 0, max: 5)
+        List<Topic> topic = Topic.list(sort: 'id')
         return topic
     }
 
